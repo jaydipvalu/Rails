@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>On road price:</strong>
+  <%= @order.on_road_price %>
+</p>
+
+<p>
+  <strong>Rto price:</strong>
+  <%= @order.rto_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @order.total_price %>
+</p>
+
+<p>
+  <strong>Payment methods:</strong>
+  <%= @order.payment_methods %>
+</p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @order.payment_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

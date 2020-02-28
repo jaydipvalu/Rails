@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Models</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+    <td colspan="15">
+      <div class="row">
+        <div class="col-md-12">
+          <%= form_tag(models_path, method: :get) do %>
+            <div class="row justify-content-center">
+              <div class="col-sm-9">
+                <%= text_field_tag(:name, params[:name],class: "form-control", placeholder: "Search") %>
+              </div>
+              <div clase="col-sm-5">
+                <%= submit_tag "Search", class:"btn btn-outline-primary btn-block" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th colspan="3"> <%= link_to 'New Model', new_model_path, class:'btn btn-primary btn-block' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @models.each do |model| %>
+      <tr>
+        <td><%= model.name %></td>
+        <td><%= model.brand.name %></td>
+        <td><%= link_to 'Show', model, class:'btn btn-dark' %></td>
+        <td><%= link_to 'Edit', edit_model_path(model), class:'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', model, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

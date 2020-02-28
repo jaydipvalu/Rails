@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_date: 2019-12-31
+  total_price_decimal: MyString
+  user_id: 1
+
+two:
+  order_date: 2019-12-31
+  total_price_decimal: MyString
+  user_id: 1

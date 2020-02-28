@@ -1,0 +1,130 @@
+<img src="" alt="">
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+<div >
+
+<table id="dtBasicExample" class="table table-bordered">
+  <thead>
+      <tr>
+      <td colspan="15">
+        <div class="row">
+          <div class="col-md-12">
+            <%= form_tag(cars_path, method: :get) do %>
+              <div class="row justify-content-center">
+                <div class="col-sm-9">
+                  <%= text_field_tag(:name, params[:name],class: "form-control", placeholder: "Search") %>
+                </div>
+                <div clase="col-sm-5">
+                  <%= submit_tag "Search", class:"btn btn-outline-primary btn-block" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Version</th>
+      <th>Car type</th>
+      <th>Rto price</th>
+      <th>On road price</th>
+      <th>Total price</th>
+      <th>Active</th>
+      <th colspan="4"><%= link_to 'New Car', new_car_path, class:'btn btn-outline-primary btn-block' %></th>
+    </tr>
+  </thead>
+
+  <tbody >
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.name %></td>
+        <td><%=link_to car.brand.name,brand_path(car.brand.id),class:'text-dark'%> </td>
+        <td><%= link_to car.model.name,edit_model_path(car),class:'text-dark' %></td>
+        <td><%= car.version.name %></td>
+        <td><%= car.car_type.name %></td>
+        <td><%= car.rto_price %></td>
+        <td><%= car.on_road_price %></td>
+        <td><%= car.total_price %></td>
+        <td><%= car.active ? 'yes' : 'no'%></td>
+
+        <td>  <%= link_to 'Show', car, class:'btn btn-outline-dark'%></td>
+          <td><%= link_to 'Edit', edit_car_path(car), class:'btn btn-outline-warning' %></td>
+          <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-danger' %></td>
+          <td>
+          <% if car.active %>
+            <%= link_to "deactive", deactive_car_path(car),method: :put, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-secondary'%>
+          <% else %>
+            <%= link_to "active",active_car_path(car),method: :put, data: { confirm: 'Are you sure?' }, class:'btn btn-outline-success'%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+<br>
+<div class="">
+  <%= paginate @cars %>
+</div>
+<div class="container">
+<div class="row ">
+  <div class="col-12 col-lg-8 m-auto">
+  <h1>User</h1>
+    <%= form_with do %>
+      <%= label_tag("Prefix :")%>
+      <%= select_tag(:prefix,raw('<option value="1">MR</option><option value="2">MRS</option>'), class:'form-control') %>
+      <br>
+      <%= label_tag("First Name:")%>
+      <%= text_field_tag(:name,'',class:'form-control', placeholder: 'Enter Your First Name')%>
+      <br>
+      <%= label_tag("Last Name:")%>
+      <%= text_field_tag(:name,'',class:'form-control', placeholder: 'Enter Your Last Name') %>
+      <br>
+      <%= label_tag("Email:")%>
+      <%= email_field(:user, :address,class:'form-control', placeholder: 'Enter Your Email') %>
+      <br>
+      <%= label_tag("Birth Date:")%>
+      <%= date_field(:user, :date,class:'form-control', placeholder: 'Enter Your Birth Date') %>
+      <br>
+      <%= label_tag("Age:")%>
+      <%= number_field(:number, :age,class:'form-control', placeholder: 'Enter Your Age')%>
+      <br>
+      <%= label_tag("Mobile:")%>
+      <%= telephone_field(:user, :phone,class:'form-control', placeholder: 'Enter Your Mobile') %>
+      <br>
+      <%= label_tag("Gender:")%>
+      <%= radio_button_tag(:male,"gender",class:'form-control') %>
+      <%= label_tag("Male") %>
+      <%= radio_button_tag(:female,"gender",class:'form-control') %>
+      <%= label_tag("Female") %>
+      <br>
+      <%= label_tag("About:") %>
+      <%= text_area_tag(:about,'',class:'form-control', placeholder: 'Enter Your About') %>
+      <br>
+      <%= label_tag("Hobby:") %>
+      <%= text_area_tag(:hobby,'',class:'form-control', placeholder: 'Enter Your Hobby' ) %>
+      <br>
+      <%= label_tag("Address:") %>
+      <%= text_area_tag(:address,'',class:'form-control', placeholder: 'Enter Your Address') %>
+      <br>
+      <%= label_tag("City:") %>
+      <%= select_tag(:city,raw('<option value="1">Surat</option><option value="2">Rajkot</option><option value="3">Ahmedabad</option>'),class:'form-control') %>
+      <br>
+      <%= label_tag("State:") %>
+      <%= select_tag(:city,raw('<option value="1">Surat</option><option value="2">Rajkot</option><option value="3">Ahmedabad</option>'), class:'form-control') %>
+      <br>
+      <%= label_tag("Country:") %>
+      <%= select_tag(:city,raw('<option value="1">Surat</option><option value="2">Rajkot</option><option value="3">Ahmedabad</option>'), class:'form-control') %>
+      <br>
+      <%= label_tag(:accept, "Accept :") %>
+      <%= check_box_tag(:accept, custom: true , class: "form-control",) %>
+      <br>
+    <% end %>
+  </div>
+</div>
+</div>

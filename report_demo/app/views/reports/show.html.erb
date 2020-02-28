@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @report.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @report.user_id %>
+</p>
+
+<p>
+  <strong>Reportble:</strong>
+  <%= @report.reportble_id %>
+</p>
+
+<p>
+  <strong>Reportble type:</strong>
+  <%= @report.reportble_type %>
+</p>
+
+<%= link_to 'Edit', edit_report_path(@report) %> |
+<%= link_to 'back', reports_path %>

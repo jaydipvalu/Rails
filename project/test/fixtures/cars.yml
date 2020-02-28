@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  brand: one
+  model: one
+  version: one
+  car_type: one
+  rto_price: 9.99
+  on_road_price: 9.99
+  total_price: 9.99
+
+two:
+  name: MyString
+  brand: two
+  model: two
+  version: two
+  car_type: two
+  rto_price: 9.99
+  on_road_price: 9.99
+  total_price: 9.99

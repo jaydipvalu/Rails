@@ -1,0 +1,32 @@
+<%= form_with(model: brand, local: true) do |form| %>
+  <% if brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+
+      <ul>
+        <% brand.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6 from-group">
+    <%= form.label :name  %>
+    <%= form.text_field :name, class:'form-control', placeholder:'Enter name'%>
+  </div>
+
+  <div class="col-sm-6 from-group">
+    <%= form.label :website %>
+    <%= form.text_field :website, class:'form-control', placeholder:'Enter website' %>
+  </div>
+
+  <div class="col-sm-6 from-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class:'form-control', placeholder:'Enter email'%>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary ml-3'%>
+  </div>
+<% end %>

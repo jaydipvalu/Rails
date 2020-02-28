@@ -1,0 +1,52 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-6">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, class:'form-control',placeholder:'Enter user_id' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :on_road_price %>
+    <%= form.text_field :on_road_price, class:'form-control',placeholder:'Enter on_road_price' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :rto_price %>
+    <%= form.text_field :rto_price, class:'form-control',placeholder:'Enter rto_price' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :total_price %>
+    <%= form.text_field :total_price, class:'form-control',placeholder:'Enter total_price' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :payment_methods %>
+    <%= form.text_field :payment_methods, class:'form-control',placeholder:'Enter payment_methods' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :payment_id %>
+    <%= form.text_field :payment_id, class:'form-control',placeholder:'Enter payment_id' %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :status %>
+    <%= form.text_field :status, class:'form-control',placeholder:'Enter status' %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class:'btn btn-primary ml-3  ' %>
+  </div>
+<% end %>

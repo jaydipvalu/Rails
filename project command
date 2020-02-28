@@ -1,0 +1,58 @@
+  rails g scaffold Brand name:string{50} website:string email:string
+rails g scaffold Model name:string brand:references
+rails g scaffold Version name:string model:references
+rails g scaffold car_type name:string
+rails g scaffold Car name:string{50} brand:references model:references version:references car_type:references rto_price:decimal on_road_price:decimal total_price:decimal
+rails g scaffold User name:string{50} brith_date:date email:string{50} pincode:string{6} gender:string{1} phone:string{15} city:string{50} state:string{50} country:string{50} adress:string{50}
+rails g scaffold Order user:references on_road_price:decimal rto_price:decimal total_price:decimal payment_methods:string payment_id:string status:string
+
+after_initialize :a
+before_validation :b
+after_validation :c
+before_create :d
+after_create :e
+before_update :f
+after_update :i
+before_save :j
+after_save :k
+before_commit :l
+after_commit :m
+
+def a
+  puts "after_initialize"
+  self.name = 'honda' if self.name.blank?
+end
+#def b
+#  puts "before_validation"
+#end
+#def c
+  #puts "after_validation"
+#end
+def d
+  puts "before_create"
+end
+def e
+  puts "after_create"
+end
+def f
+  puts "before_update"
+end
+def i
+  puts "after_update"
+end
+def j
+  puts "before_save"
+end
+def k
+  puts "after_save"
+end
+
+def l
+  puts "before_commit"
+end
+def m
+  puts "after_commit"
+end
+
+User.joins(:contacts).where(contacts:{contact:'9999'})
+User.joins(:emails).where(emails:{email:'jaydip@.com'})
